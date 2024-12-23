@@ -1,0 +1,56 @@
+
+query EmployeeQuery($id: [QueryArgument]) {
+    employeeEntries(id: $id) {
+        ... on employee_default_Entry {
+            employeeFirstName
+            employeeLastName
+            employeePreferredName
+            employeeEmailAddress
+            employeeEducationLevel
+            employeeMilitaryExperience
+            employeeMilitaryBranch
+            employeeMilitaryRank
+            yearsOfMilitaryExperience
+            yearsWithEmployer
+            currentEmployer {
+                title
+            }
+            employeeProjectAreas {
+                ... on projectArea_Entry {
+                    id
+                    projectAreaTitle {
+                        title
+                    }
+                    projectAreaLocation {
+                        title
+                    }
+                    projectAreaType {
+                        title
+                    }
+                    projectClients
+                    yearsOfExperience
+                }
+            }
+            employeeSoftware {
+                ... on software_Entry {
+                    softwareTitle {
+                        title
+                    }
+                    softwareProficiency
+                }
+            }
+            employeeTechnicalAreas {
+                ... on technicalAreas_Entry {
+                    technicalAreaTitle {
+                        title
+                    }
+                    technicalAreaProficiency
+                }
+            }
+            employeeWorkLocation {
+                title
+            }
+        }
+    }
+}
+
